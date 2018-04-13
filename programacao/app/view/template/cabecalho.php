@@ -41,9 +41,7 @@
 
 <ul>
     <li><a href="#" class="active">Home</a></li>
-    <li><a href="#">News</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">About</a></li>
+    <li><a href="categorias.php">Categoria</a></li>
+    <li><a href="produtos.php">Produto</a></li>
+
 </ul>
-</body>
-</html>

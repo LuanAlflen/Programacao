@@ -1,6 +1,6 @@
 <?php
 
-require '../models/CategoriaCrud.php';
+require '../models/ProdutoCrud.php';
 
 //testando a CategoriaCrud
 if (isset($_GET['acao'])){
@@ -9,10 +9,10 @@ if (isset($_GET['acao'])){
     $action = 'index';
 }
 if ($action == 'index'){
-    $crud = new CategoriaCrud();
-    $categorias = $crud->getCategorias();
+    $crud = new ProdutoCrud();
+    $produtos = $crud->getProdutos();
     include "../view/template/cabecalho.php";
-    include "../view/Categoria/index.php";
+    include "../view/Produtos/index.php";
     include "../view/template/rodape.php";
 }
 
@@ -23,7 +23,7 @@ switch ($action){
         $resultado = $test->insertCategoria($cat);
 
         include "../view/template/cabecalho.php";
-        include "../view/Categoria/index.php";
+        include "../view/Produtos/index.php";
         include "../view/template/rodape.php";
         break;
 
@@ -46,15 +46,11 @@ switch ($action){
     case 'show':
 
         $id = $_GET['id'];
-        $crud = new CategoriaCrud();
-        $categoria = $crud->getCategoria($id);
+        $crud = new ProdutoCrud();
+        $produto = $crud->getProduto($id);
         include "../view/template/cabecalho.php";
-        include "../view/Categoria/show.php";
+        include "../view/Produtos/show.php";
         include "../view/template/rodape.php";
 
         break;
 }
-
-
-?>
-

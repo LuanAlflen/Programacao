@@ -1,13 +1,3 @@
-<?php
-
-require "../../models/CategoriaCrud.php";
-
-$crud = new CategoriaCrud();
-$categoria = $crud->getCategoria($_GET['id']);
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-
-?>
-
 
 <!doctype html>
 <html lang="pt-br">

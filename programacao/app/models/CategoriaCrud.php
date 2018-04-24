@@ -40,7 +40,6 @@ class CategoriaCrud
     }
 
 
-
     public function getCategorias()
     {
         $sql = "SELECT * FROM categoria";
@@ -49,7 +48,7 @@ class CategoriaCrud
 
         $categorias = $result->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($categorias as $categoria){
+        foreach ($categorias as $categoria) {
             $id = $categoria['id_categoria'];
             $nome = $categoria['nome_categoria'];
             $descricao = $categoria['descricao_categoria'];
@@ -65,18 +64,18 @@ class CategoriaCrud
 
 
     //RECEBE UM OBJETTO $cat E INSERE NA TABELA categoria DO BD
-    public function insertCategoria(Categoria $cat){
+    public function insertCategoria(Categoria $cat)
+    {
 
         //EFETUA A CONEXAO
         $this->conexao = DBConnection::getConexao();
         //MONTA O TEXTO DA INSTRUÇÂO SQL
-        $sql = "insert into categoria (nome_categoria, descricao_categoria) values ('".$cat->getNome()."','" .$cat->getDescricao()."')";
+        $sql = "INSERT INTO categoria (nome_categoria, descricao_categoria) values ('{$cat->getNome()}','{$cat->getDescricao()}')";
 
-        try{//TENTA EXECUTAR A INSTRUCAO
+        try {//TENTA EXECUTAR A INSTRUCAO
 
-        $this->conexao->exec($sql);
-        header("Location: ../view/Categoria/index.php");
-    }catch(PDOException $e){//EM CASO DE ERRO, CAPTURA A MENSAGEM
+            $this->conexao->exec($sql);
+        } catch (PDOException $e) {//EM CASO DE ERRO, CAPTURA A MENSAGEM
             return $e->getMessage();
         }
     }
@@ -98,9 +97,15 @@ class CategoriaCrud
             return $e->getMessage();
         }
     }
-    public function editarCategoria(Categoria $cat){
-        $this->conexao = DBConnection::getConexao();
-        $sql = "UPDATE categoria set nome_categoria = '{$cat->getNome()}', descricao_categoria = '{$cat->getDescricao()}' WHERE id = '$cat[id]'";
+
+
+    public function updateCategoria(Categoria $cat)
+    {
+
+        //MONTA O TEXTO DA INSTRUÇÃO SQL DE INSERT
+        $sql = "UPDATE categoria SET
+    (nome_categoria='{$cat->getNome()}' descricao_categoria= '{$cat->getDescricao()}' WHERE id_categoria '{$cat->getId()}'";
+
         try {//TENTA EXECUTAR A INSTRUCAO
 
             $this->conexao->exec($sql);
@@ -108,20 +113,4 @@ class CategoriaCrud
             return $e->getMessage();
         }
     }
-
-
 }
-
-//    public function updateCategoria(){
-//
-//    //MONTA O TEXTO DA INSTRUÇÃO SQL DE INSERT
-//    $sql = "UPDATE categoria SET
-//    (nome_categoria='".$cat->getNome()."'. descricao_categoria='".$cat->getDescricao() "WHERE id_categoria "
-//
-//    try{//TENTA EXECUTAR A INSTRUCAO
-//
-//        $this->conexao->exec($sql);
-//    }catch(PDOException $e){//EM CASO DE ERRO, CAPTURA A MENSAGEM
-//        return $e->getMessage();
-//    }
-//}

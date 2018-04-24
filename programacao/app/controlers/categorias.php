@@ -27,22 +27,6 @@ switch ($action){
         include "../view/template/rodape.php";
         break;
 
-    case 'editar':
-
-        $cat = new Categoria(null, $_POST['nome'],$_POST['descricao']);
-        $test = new CategoriaCrud();
-        $resultado = $test->editarCategoria($cat);
-
-        break;
-
-    case 'excluir';
-
-        $test = new CategoriaCrud();
-        $resultado = $test->deleteCategoria($_GET['id']);
-        header("Location: index.php");
-
-        break;
-
     case 'show':
 
         $id = $_GET['id'];
@@ -53,8 +37,49 @@ switch ($action){
         include "../view/template/rodape.php";
 
         break;
-}
 
+
+    case 'inserir';
+
+        if(isset($_post['inserir'])){
+            include "../view/template/cabecalho.php";
+            include "../view/Categoria/inserir.php";
+            include "../view/template/rodape.php";
+        }else{
+            $cat = new Categoria(null, $_POST['nome'], $_POST['descricao']);
+            $crud = new CategoriaCrud();
+            $crud->insertCategoria($cat);
+            header("Location: categorias.php");
+        }
+        break;
+
+        case 'editar';
+
+
+        if(!isset($_post['editar'])){
+            $id = $_GET['id'];
+            $crud= new CategoriaCrud();
+            $crud->updateCategoria($id);
+            include "../view/template/cabecalho.php";
+            include "../view/Categoria/show.php";
+            include "../view/template/rodape.php";
+        }else{
+            $cat = new Categoria();
+            $crud = new CategoriaCrud();
+            $crud->insertCategoria($cat);
+            echo "aqui";
+//            header("Location: Categorias.php");
+        }
+        break;
+
+    case 'excluir';
+
+        $test = new CategoriaCrud();
+        $resultado = $test->deleteCategoria($_GET['id']);
+        header("Location: index.php");
+
+        break;
+}
 
 ?>
 

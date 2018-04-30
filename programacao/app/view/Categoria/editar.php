@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -10,11 +9,12 @@
 </head>
 <body>
 
-<form action="../../controlers/categorias.php?acao=editar" method="post">
-    <input value="<?= $categoria->getNome()?>" type="text" name="nome">
-    <input value="<?= $categoria->getDescricao()?>" type="text" name="descricao"">
-    <input type="submit" value="Salvar" >
+<form action="?acao=editar&id=<?= $categoria->getId(); ?>" method="post">
+    <br>        <input value="<?= $categoria->getNome()?>" type="text" name="nome" placeholder="Nome">
+    <br><br>    <textarea rows="4" cols="50" name="descricao" id="descricao"><?= $categoria->getDescricao()?></textarea>
+    <br>        <input type="submit" value="Salvar" name="gravar">
 </form>
 
 </body>
 </html>
+

@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body style="background-color: #BC8F8F;">
+<body>
 
 
-<form action="../../controlers/categorias.php?acao=inserir" method="post">
+<form action="?acao=inserir" method="post">
     <br><input value="" type="text" name="nome" placeholder="Nome">
-    <br><br><textarea rows="4" cols="50" name="descricao" id="descricao"> </textarea>
-    <br><input type="submit" value="Salvar" >
+    <br><br><textarea rows="4" cols="50" name="descricao" id="descricao"></textarea>
+    <br><input type="submit" value="Salvar" name="gravar">
 </form>
 
 </body>

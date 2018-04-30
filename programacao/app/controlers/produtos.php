@@ -1,5 +1,6 @@
 <?php
 
+require '../models/CategoriaCrud.php';
 require '../models/ProdutoCrud.php';
 
 //testando a CategoriaCrud
@@ -17,29 +18,48 @@ if ($action == 'index'){
 }
 
 switch ($action){
-    case 'cadastrar':
-        $cat = new Categoria(null, $_POST['nome'],$_POST['descricao']);
-        $test = new CategoriaCrud();
-        $resultado = $test->insertCategoria($cat);
-
-        include "../view/template/cabecalho.php";
-        include "../view/Produtos/index.php";
-        include "../view/template/rodape.php";
+    case 'inserir':
+        if(!isset($_POST['gravar'])){
+            $crudCat = new CategoriaCrud();
+            $categorias = $crudCat->getCategorias();
+            include "../view/template/cabecalho.php";
+            include "../view/Produtos/inserir.php";
+            include "../view/template/rodape.php";
+        }else{
+            $prod = new Produto(null, $_POST['nome'], $_POST['descricao'], $_POST['preco'], $_POST['foto'], $_POST['categoria']);
+            $crudProd = new ProdutoCrud();
+            $crudProd->insertProdutos($prod);
+            header("Location: produtos.php");
+        }
         break;
 
-    case 'editar':
+    case 'editar';
 
-        $cat = new Categoria(null, $_POST['nome'],$_POST['descricao']);
-        $test = new CategoriaCrud();
-        $resultado = $test->editarCategoria($cat);
 
+        if(!isset($_POST['gravar'])){ // vai para o form
+            $id = $_GET['id'];
+            $crud= new  ProdutoCrud();
+            $produto = $crud->getProduto($id);
+            include "../view/template/cabecalho.php";
+            include "../view/Produtos/editar.php";
+            include "../view/template/rodape.php";
+        }else{ // já passou no form e fez submit
+            $id = $_GET['id'];
+            $nome = $_POST['nome'];
+            $descricao = $_POST['descricao'];
+            $prod = new Produto($id, $nome, $descricao);
+            $crud = new ProdutoCrud();
+            $crud->updateProduto($prod);
+            header("Location: produtos.php"); // chama o controlador
+        }
         break;
 
     case 'excluir';
 
-        $test = new CategoriaCrud();
-        $resultado = $test->deleteCategoria($_GET['id']);
-        header("Location: index.php");
+        $id = $_GET['id'];
+        $crud = new ProdutoCrud();
+        $resultado = $crud->deleteProduto($id);
+        header("Location: produtos.php");
 
         break;
 

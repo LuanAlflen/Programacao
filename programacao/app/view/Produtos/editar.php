@@ -1,14 +1,3 @@
-<?php
-
-require "../../models/CategoriaCrud.php";
-
-$crud = new CategoriaCrud();
-$categoria = $crud->getCategoria($_GET['id']);
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-
-?>
-
-
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -20,10 +9,10 @@ $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 </head>
 <body>
 
-<form action="../../controlers/categorias.php?acao=editar" method="post">
-    <input value="<?= $categoria->getNome()?>" type="text" name="nome">
-    <input value="<?= $categoria->getDescricao()?>" type="text" name="descricao"">
-    <input type="submit" value="Salvar" >
+<form action="?acao=editar&id=<?= $produto->getId(); ?>" method="post">
+    <br>        <input value="<?= $produto->getNome()?>" type="text" name="nome" placeholder="Nome">
+    <br><br>    <textarea rows="4" cols="50" name="descricao" id="descricao"><?= $produto->getDescricao()?></textarea>
+    <br>        <input type="submit" value="Salvar" name="gravar">
 </form>
 
 </body>

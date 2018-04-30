@@ -92,7 +92,6 @@ class CategoriaCrud
         try {//TENTA EXECUTAR A INSTRUCAO
 
             $this->conexao->exec($sql);
-            header("Location: ../view/Categoria/index.php");
         } catch (PDOException $e) {//EM CASO DE ERRO, CAPTURA A MENSAGEM
             return $e->getMessage();
         }
@@ -103,8 +102,9 @@ class CategoriaCrud
     {
 
         //MONTA O TEXTO DA INSTRUÇÃO SQL DE INSERT
-        $sql = "UPDATE categoria SET
-    (nome_categoria='{$cat->getNome()}' descricao_categoria= '{$cat->getDescricao()}' WHERE id_categoria '{$cat->getId()}'";
+        $sql = "UPDATE categoria 
+                SET nome_categoria='{$cat->getNome()}', descricao_categoria= '{$cat->getDescricao()}' 
+                WHERE id_categoria ='{$cat->getId()}'";
 
         try {//TENTA EXECUTAR A INSTRUCAO
 

@@ -65,7 +65,78 @@ class ProdutoCrud
 
 
     }
+    public function getProdCat($id)
+    {
+        $sql = "SELECT * FROM produto WHERE id_categoria = $id";
 
+        $result = $this->conexao->query($sql);
+
+        $produtos = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($produtos as $produto){
+            $id_produto = $produto['id_produto'];
+            $nome = $produto['nome_produto'];
+            $descricao = $produto['descricao_produto'];
+            $foto = $produto['foto_produto'];
+            $preco = $produto['preco_produto'];
+            $id_categoria = $produto['id_categoria'];
+
+
+            $obj = new Produto($id_produto, $nome, $descricao, $foto,$preco,$id_categoria);
+            $listaProduto[] = $obj;
+        }
+        return $listaProduto;
+
+    }
+
+    public function insertProdutos(Produto $prod)
+    {
+
+        //EFETUA A CONEXAO
+        $this->conexao = DBConnection::getConexao();
+        //MONTA O TEXTO DA INSTRUÇÂO SQL
+        $sql = "INSERT INTO produto (nome_produto, descricao_produto, foto_produto, preco_produto, id_categoria) 
+                values ('{$prod->getNome()}','{$prod->getDescricao()}' ,'{$prod->getFoto()}','{$prod->getPreco()}','{$prod->getIdcategoria()}')";
+
+        try {//TENTA EXECUTAR A INSTRUCAO
+
+            $this->conexao->exec($sql);
+        } catch (PDOException $e) {//EM CASO DE ERRO, CAPTURA A MENSAGEM
+            return $e->getMessage();
+        }
+    }
+
+    public function deleteProduto($id)
+    {
+
+        //EFETUA A CONEXAO
+        $this->conexao = DBConnection::getConexao();
+        //MONTA O TEXTO DA INSTRUÇÂO SQL
+        $sql = "DELETE FROM produto WHERE id_produto = $id";
+
+        try {//TENTA EXECUTAR A INSTRUCAO
+
+            $this->conexao->exec($sql);
+        } catch (PDOException $e) {//EM CASO DE ERRO, CAPTURA A MENSAGEM
+            return $e->getMessage();
+        }
+    }
+
+    public function updateProduto(Produto $cat)
+    {
+
+        //MONTA O TEXTO DA INSTRUÇÃO SQL DE INSERT
+        $sql = "UPDATE produto 
+                SET nome_produto ='{$cat->getNome()}', descricao_produto = '{$cat->getDescricao()}' 
+                WHERE id_produto ='{$cat->getId()}'";
+
+        try {//TENTA EXECUTAR A INSTRUCAO
+
+            $this->conexao->exec($sql);
+        } catch (PDOException $e) {//EM CASO DE ERRO, CAPTURA A MENSAGEM
+            return $e->getMessage();
+        }
+    }
 
 
 

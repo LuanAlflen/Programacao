@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>4</title>
+    <script>
+        function funcao() {
+            var input1 = document.getElementById('input1').value;
+            var input2 = 500;
+
+
+
+            var extra = input1 * 50;
+            var total = extra + input2;
+
+
+            window.alert('Voce receberá R$' + total + ',00!');
+            location.reload();
+
+        }
+    </script>
+
+
+</head>
+<body>
+
+<div class="form" onsubmit="funcao()">
+    <form>
+        <label>Quantas vendas voce fez?</label>
+        <input required id="input1" type="number" placeholder="Ex: 20">
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+
+</body>
+</html>

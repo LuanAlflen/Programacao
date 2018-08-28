@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <script>
+        function funcao() {
+            var input1 = document.getElementById('input1').value;
+            var input2 = document.getElementById('input2').value;
+
+
+
+            var divisao = input1 / input2;
+
+            window.alert('Voce lê ' + divisao + ' livros por mês!');
+            location.reload();
+
+        }
+    </script>
+
+
+</head>
+<body>
+
+    <div class="form" onsubmit="funcao()">
+        <form>
+            <label>Quantos Livros você já leu?</label>
+            <input required id="input1" type="number" placeholder="Ex: 8">
+            <label>Quantos meses levou para ler todos os livros?</label>
+            <input required id="input2" type="number" placeholder="Ex: 12">
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+        function  calculo() {
+            var Calculo = 6*8;
+            var Dias = document.getElementById('dias').value;
+
+            var Curtidas = Dias * Calculo;
+            window.alert('Você tem '+Curtidas+ ' curtidas em '+Dias+' dias');
+            window.location();
+
+        }
+    </script>
+
+</head>
+<body>
+
+<div style="border-style: groove; text-align: center; margin-right: 30%; margin-left: 30%;" >
+    <form onsubmit="calculo()">
+        <div class="form-group">
+            <label for="dias">Dias</label>
+            <input type="number" class="form-control" id="dias" aria-describedby="emailHelp" placeholder="Ex: 3">
+        </div>
+        <button type="submit" class="btn btn-primary">Resposta</button>
+    </form>
+</div>
+
+</body>
+</html>

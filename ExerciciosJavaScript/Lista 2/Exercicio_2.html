@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+    <script>
+        function funcao() {
+            var input1 = document.getElementById('input1').value;
+            var input2 = 150;
+
+
+
+            var divisao = input1 / input2;
+            var rd = Math.trunc(divisao);
+
+            window.alert('Voce está no nível ' + rd );
+            location.reload();
+
+        }
+    </script>
+
+
+</head>
+<body>
+
+<div class="form" onsubmit="funcao()">
+    <form>
+        <label>Quantos montrou voce eliminou?</label>
+        <input required id="input1" type="number" placeholder="Ex: 300">
+        <input type="submit"  value="Enviar">
+    </form>
+</div>
+
+</body>
+</html>

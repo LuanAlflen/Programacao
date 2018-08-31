@@ -2,18 +2,19 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>3</title>
+    <title>Exercicio 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <script>
-        function funcao() {
-            var input1 = document.getElementById('input1').value;
-            var input2 = 150;
+        function calculo() {
+            var monstros = document.getElementById('monstros').value;
 
+            var result = monstros / 150;
+            var nivel = Math.trunc(result);
 
-
-            var divisao = input1 / input2;
-            var rd = Math.trunc(divisao);
-
-            window.alert('Voce está no nível ' + rd );
+            window.alert('Voce está no nível ' + nivel);
             location.reload();
 
         }
@@ -23,12 +24,16 @@
 </head>
 <body>
 
-<div class="form" onsubmit="funcao()">
-    <form>
-        <label>Quantos montrou voce eliminou?</label>
-        <input required id="input1" type="number" placeholder="Ex: 300">
-        <input type="submit"  value="Enviar">
+<div style="border-style: groove; text-align: center; margin-right: 30%; margin-left: 30%;" >
+    <form onsubmit="calculo()">
+        <div class="form-group">
+            <label for="monstros">Quantidade de monstros mortos</label>
+            <input type="number" class="form-control" id="monstros" placeholder="Ex: 420">
+        </div>
+        <button type="submit" class="btn btn-primary">Resposta</button>
     </form>
+    <br><label>Aluno: Luan Alflen</label>
+    <br><label>Turma: 3info1</label>
 </div>
 
 </body>

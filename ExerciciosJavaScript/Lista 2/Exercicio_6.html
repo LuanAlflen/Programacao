@@ -2,19 +2,23 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Exercicio 4</title>
+    <title>Exercicio 6</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script>
         function calculo() {
-            var vendas = document.getElementById('vendas').value;
-            var salarioVariavel = vendas * 50;
-            var salarioTotal = salarioVariavel + 500;
+            var passos = document.getElementById('passos').value;
+            var tempo = document.getElementById('tempo').value;
+            var distancia = 300000;
 
+            var segundos = tempo * 60;
+            var passos_segundo = passos / segundos;
 
-            window.alert('O salario total será de ' + salarioTotal +' reais');
+            var cm_passos = distancia / passos;
+
+            window.alert('Voce leva ' + passos_segundo + ' segundos para dar um passo e cada passo seu tem ' + cm_passos + 'cm!');
             location.reload();
 
         }
@@ -27,8 +31,10 @@
 <div style="border-style: groove; text-align: center; margin-right: 30%; margin-left: 30%;" >
     <form onsubmit="calculo()">
         <div class="form-group">
-            <label for="vendas">Vendas feitas</label>
-            <input type="number" class="form-control" id="vendas" placeholder="Ex: 200">
+            <label for="passos">Quantidade de passos</label>
+            <input type="number" class="form-control" id="passos" placeholder="Ex: 5000">
+            <label for="tempo">Tempo até a chegada (minutos)</label>
+            <input type="number" class="form-control" id="tempo" placeholder="Ex: 10">
         </div>
         <button type="submit" class="btn btn-primary">Resposta</button>
     </form>

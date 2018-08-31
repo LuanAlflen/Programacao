@@ -2,17 +2,18 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>1</title>
+    <title>Exercicio 1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <script>
-        function funcao() {
-            var input1 = document.getElementById('input1').value;
-            var input2 = document.getElementById('input2').value;
+        function calculo() {
+            var livros = document.getElementById('livros').value;
+            var tempo = document.getElementById('tempo').value;
+            var result = livros / tempo;
 
-
-
-            var divisao = input1 / input2;
-
-            window.alert('Voce lê ' + divisao + ' livros por mês!');
+            window.alert('A velocidade de leitura é de ' + result + ' por mês!');
             location.reload();
 
         }
@@ -22,15 +23,21 @@
 </head>
 <body>
 
-    <div class="form" onsubmit="funcao()">
-        <form>
-            <label>Quantos Livros você já leu?</label>
-            <input required id="input1" type="number" placeholder="Ex: 8">
-            <label>Quantos meses levou para ler todos os livros?</label>
-            <input required id="input2" type="number" placeholder="Ex: 12">
-            <input type="submit" value="Enviar">
+    <div style="border-style: groove; text-align: center; margin-right: 30%; margin-left: 30%;" >
+        <form onsubmit="calculo()">
+            <div class="form-group">
+                <label for="livros">Total de livros lidos</label>
+                <input type="number" class="form-control" id="livros" placeholder="Ex: 4">
+                <label for="tempo">Tempo que demorou para ler todos eles (meses)</label>
+                <input type="number" class="form-control" id="tempo" placeholder="Ex: 8">
+            </div>
+            <button type="submit" class="btn btn-primary">Resposta</button>
         </form>
+        <br><label>Aluno: Luan Alflen</label>
+        <br><label>Turma: 3info1</label>
     </div>
+
+
 
 </body>
 </html>

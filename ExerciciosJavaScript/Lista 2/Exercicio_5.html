@@ -2,19 +2,20 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Exercicio 4</title>
+    <title>Exericio 5</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script>
         function calculo() {
-            var vendas = document.getElementById('vendas').value;
-            var salarioVariavel = vendas * 50;
-            var salarioTotal = salarioVariavel + 500;
+            var dinheiro = document.getElementById('dinheiro').value;
+
+            var result = dinheiro / 0.02;
+            var result2 = Math.ceil(result);
 
 
-            window.alert('O salario total será de ' + salarioTotal +' reais');
+            window.alert('São necessarios ' + result2 + ' cliques');
             location.reload();
 
         }
@@ -27,8 +28,8 @@
 <div style="border-style: groove; text-align: center; margin-right: 30%; margin-left: 30%;" >
     <form onsubmit="calculo()">
         <div class="form-group">
-            <label for="vendas">Vendas feitas</label>
-            <input type="number" class="form-control" id="vendas" placeholder="Ex: 200">
+            <label for="dinheiro">Quanto quer ganhar</label>
+            <input type="number" class="form-control" id="dinheiro" placeholder="Ex: 2000">
         </div>
         <button type="submit" class="btn btn-primary">Resposta</button>
     </form>

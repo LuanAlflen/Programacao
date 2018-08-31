@@ -2,16 +2,18 @@
 <html lang="pr-br">
 <head>
     <meta charset="UTF-8">
-    <title>7</title>
+    <title>Exercicio 7</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script>
-        function  funcao() {
-            var input1 = 500;
-            var input2 = 250;
+        function  calculo() {
+            var valor1 = 500;
+            var valor2 = 250;
+            var result = valor1 / valor2;
 
-            var tot = input1 / input2;
-
-            window.alert('Cada saquinho deve ser vendido a R$' + tot);  
+            window.alert('o saquinho será vendido a ' + result + ' reais');
             window.location();
 
         }
@@ -20,10 +22,12 @@
 </head>
 <body>
 
-<div>
-    <form onsubmit="funcao()">
-        <input type="submit" value="Enviar">
+<div style="border-style: groove; text-align: center; margin-right: 30%; margin-left: 30%;" >
+    <form onsubmit="calculo()">
+        <button type="submit" class="btn btn-primary">Descubra</button>
     </form>
+    <br><label>Aluno: Luan Alflen</label>
+    <br><label>Turma: 3info1</label>
 </div>
 
 </body>
